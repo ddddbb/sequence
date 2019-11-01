@@ -193,8 +193,8 @@
 
 ```java
 
-@Service("rdrsSource")
-public class RDRSSource implements Source<Long> {
+@Service("drdsSequenceSource")
+public class DrdsSequenceSource implements Source<Long> {
 	JdbcTemplate jdbcTemplate;
 
 	public DrdsSequenceSource(JdbcTemplate jdbcTemplate) {
@@ -230,7 +230,7 @@ public class RDRSSource implements Source<Long> {
         //        00000000-00000004 循环
         SequenceRule ring1 = new SequenceRule(sequencesService,"ring");
         ring1.s("PAY-ORDER-").df("yyyyMMdd-").nf("00000000",
-                Source.Config.builder().customSource("rdrsSource").max(10L).build()
+                Source.Config.builder().customSource("drdsSequenceSource").max(10L).build()
         );
         sequencesService.register(ring1);
 
