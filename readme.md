@@ -22,40 +22,45 @@
     
     
   ##  用户手册
-<table>
+<table align="left" >
     <tr>
         <th>配置项目</th>
-        <th>语法</th>
+        <th >语法</th>
         <th>说明</th>
     </tr>
-    <tr>
+    <tr align="left">
         <th>表达式</th>
-        <th>s,nf,df</th>
+        <th>  s:字符串<br/>nf：数字格式<br/>df：日期</th>
         <th>sequence表达式</th>
     </tr>
-    <tr>
+    <tr align="left">
         <th>生成器数据源</th>
-        <th>LONG,REDIS,DB,自定义源</th>
-        <th>默认LONG，单虚拟机不重复</th>
+        <th>LONG：虚拟机生成器<br/>REDIS：REDIS<br/>DB:数据库生成器<br/>自定义：自定义生成器，参见customSource<br/></th>
+        <th></th>
     </tr>
-    <tr>
+    <tr  align="left">
         <th>重置模式</th>
-        <th>DAY,WEEK,MONTH,YEAR,RING,NONE</th>
-        <th>DAY：日重置。。。。RING：环装重置，参见最大值定义，NONE：不重置</th>
-    </tr>
-    <tr>
+        <th>DAY:按日重置<br/>WEEK：按周重置<br/>MONTH：......<br/>YEAR：......<br/>RING:环形重置，参见MAX<br/>NONE:不重置</th>
+        <th></th>
+    </tr >
+    <tr  align="left">
         <th>STEP</th>
         <th>数字：默认1</th>
         <th></th>
     </tr>
-    <tr>
+    <tr  align="left">
         <th>最小值</th>
         <th>数字：默认0</th>
         <th></th>
     </tr>
-    <tr>
+    <tr  align="left">
         <th>最大值</th>
         <th>数字：默认Long.MAX</th>
+        <th></th>
+    </tr>
+    <tr  align="left">
+        <th>customSource</th>
+        <th>自定义生成器</th>
         <th></th>
     </tr>
 </table>
