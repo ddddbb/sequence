@@ -187,9 +187,9 @@
 
   ##  扩展
   ####  sequence  源扩展
-1，继承Source接口
-2，在spring中定义bean
-3，使用
+ - 继承Source接口
+ - 在spring中定义bean
+ - 使用
 
 ```java
 
@@ -213,7 +213,7 @@ public class RDRSSource implements Source<Long> {
 } 
 
 ```
-
+使用
 
 ```java
 
