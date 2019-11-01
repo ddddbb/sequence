@@ -97,7 +97,7 @@
         );
         sequencesService.register(day);
         
-        AY-20191101-1
+        DAY-20191101-1
         DAY-20191101-2
         DAY-20191101-3
         DAY-20191101-4
