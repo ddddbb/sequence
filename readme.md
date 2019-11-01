@@ -1,6 +1,6 @@
-  # 通用sequence生成器
+  #  通用sequence生成器
 
-  ## 样例
+  ##  样例
         
       
          
@@ -21,7 +21,7 @@
  
     
     
-  ## 用户手册
+  ##  用户手册
 <table>
     <tr>
         <th>配置项目</th>
@@ -61,7 +61,7 @@
 </table>
 
 
-  ## 例子
+  ##  例子
 
     //配置sequence规则，这是一个最大10的环形重置sequencce
          SequenceRule ring1 = new SequenceRule(sequencesService,"ring");
@@ -180,8 +180,8 @@
 
 
 
-  ## 扩展
-  ####sequence  源扩展
+  ##  扩展
+  ####  sequence  源扩展
 1，继承Source接口
 2，在spring中定义bean
 3，使用
