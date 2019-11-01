@@ -1,18 +1,8 @@
 通用sequence生成器
 
-用法
+样例
         
-        定义规则
-        SequenceRule ring1 = new SequenceRule(sequenceService,"ring");
-        ring1.s("PAY-ORDER-").df("yyyyMMdd-").nf("00000000",
-                Source.Config.builder().build()
-        );
-        sequencesService.register(ring1);
-        
-        成成sequence
-         for (int i = 0; i < 10; i++) {
-                    System.out.println(sequencesService.nextVal("ring"));
-         }
+      
          
          PAY-ORDER-20191101-00000001
          PAY-ORDER-20191101-00000002
@@ -31,7 +21,7 @@
  
     
     
-配置词典
+用户手册
 <table>
     <tr>
         <th>配置项目</th>
@@ -69,15 +59,23 @@
         <th></th>
     </tr>
 </table>
-例
 
+
+例子
+
+    //配置sequence规则，这是一个最大10的环形重置sequencce
          SequenceRule ring1 = new SequenceRule(sequencesService,"ring");
          ring1.s("PAY-ORDER-").df("yyyyMMdd-").nf("00000000",
                  Source.Config.builder().cycle(Source.Cycle.RING).max(10L).build()
          );
          sequencesService.register(ring1);
          
-         
+    //生成sequence    
+          for (int i = 0; i < 12; i++) {
+                     System.out.println(sequencesService.nextVal("ring"));
+          }
+                 
+                 
         
         PAY-ORDER-20191101-00000001
         PAY-ORDER-20191101-00000002
