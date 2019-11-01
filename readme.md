@@ -1,6 +1,6 @@
-通用sequence生成器
+#通用sequence生成器
 
-样例
+##样例
         
       
          
@@ -21,7 +21,7 @@
  
     
     
-用户手册
+##用户手册
 <table>
     <tr>
         <th>配置项目</th>
@@ -61,7 +61,7 @@
 </table>
 
 
-例子
+##例子
 
     //配置sequence规则，这是一个最大10的环形重置sequencce
          SequenceRule ring1 = new SequenceRule(sequencesService,"ring");
@@ -180,4 +180,44 @@
 
 
 
-     
+##扩展
+####sequence源扩展
+1，继承Source接口
+2，在spring中定义bean
+3，使用
+
+```java
+
+@Service("rdrsSource")
+public class RDRSSource implements Source<Long> {
+    @Override
+    public Long increBy(Config sc) {
+        //...
+        return null;
+    }
+
+    @Override
+    public void reset(Config sc) {
+        //....
+    }
+
+    @Override
+    public Type type() {
+        return Type.DRDS;
+    }
+} 
+
+```
+
+
+```java
+
+        //        00000000-00000004 循环
+        SequenceRule ring1 = new SequenceRule(sequencesService,"ring");
+        ring1.s("PAY-ORDER-").df("yyyyMMdd-").nf("00000000",
+                Source.Config.builder().customSource("rdrsSource").max(10L).build()
+        );
+        sequencesService.register(ring1);
+
+```
+ 

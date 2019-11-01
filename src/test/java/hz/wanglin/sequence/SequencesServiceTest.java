@@ -21,7 +21,7 @@ public class SequencesServiceTest {
         //        00000000-00000004 循环
         SequenceRule ring1 = new SequenceRule(sequencesService,"ring");
         ring1.s("PAY-ORDER-").df("yyyyMMdd-").nf("00000000",
-                Source.Config.builder().cycle(Source.Cycle.RING).max(10L).build()
+                Source.Config.builder().customSource("rdrsSource").max(10L).build()
         );
         sequencesService.register(ring1);
         //      按日重置的
