@@ -24,12 +24,18 @@ public class SequencesServiceTest {
                 Source.Config.builder().cycle(Source.Cycle.RING).max(10L).build()
         );
         sequencesService.register(ring1);
+        //      按日重置的
+        SequenceRule day = new SequenceRule(sequencesService,"day");
+        day.s("DAY-").df("yyyyMMdd-").nf("######",
+                Source.Config.builder().cycle(Source.Cycle.DAY).build()
+        );
+        sequencesService.register(day);
     }
 
     @Test
     public void test() {
-        for (int i = 0; i < 12; i++) {
-            System.out.println(sequencesService.nextVal("ring"));
+        for (int i = 0; i < 1200; i++) {
+            System.out.println(sequencesService.nextVal("day"));
         }
     }
 
