@@ -195,21 +195,31 @@
 
 @Service("rdrsSource")
 public class RDRSSource implements Source<Long> {
-    @Override
-    public Long increBy(Config sc) {
-        //...
-        return null;
-    }
+	JdbcTemplate jdbcTemplate;
 
-    @Override
-    public void reset(Config sc) {
-        //....
-    }
+	public DrdsSequenceSource(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 
-    @Override
-    public Type type() {
-        return Type.DRDS;
-    }
+	@Override
+	public Long increBy(Config sc) {
+		String sql = "SELECT " + sc.sequenceName + ".nextval FROM dual WHERE count = ? ";
+		return Long.parseLong(Collections.max(jdbcTemplate.queryForList(sql, new Object[] { sc.step }, String.class)));
+	}
+
+	@Override
+	public void reset(Config sc) {
+
+	}
+
+	@Override
+	public Type type() {
+		return Type.DRDS;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
 } 
 
 ```
