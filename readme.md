@@ -30,7 +30,7 @@
     </tr>
     <tr align="left">
         <th>表达式</th>
-        <th>  s:字符串<br/>nf：数字格式<br/>df：日期</th>
+        <th>  s:字符串<br/>nf：数字格式，参见数字格式定义###00000<br/>df：日期，参见日期格式定义</th>
         <th>sequence表达式</th>
     </tr>
     <tr align="left">
