@@ -1,4 +1,5 @@
   #  通用sequence生成器
+项目迁移到https://gitee.com/ddddbb/sequence
 
   ##  样例
         
